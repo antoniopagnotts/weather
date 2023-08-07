@@ -259,3 +259,6 @@ poetry.toml
 
 # LSP config files
 pyrightconfig.json
+
+#API keys for the project
+API_KEY

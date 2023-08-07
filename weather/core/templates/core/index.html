@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Weather</title>
+    </head>
+
+    <body>
+        
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="city1" placeholder="fist city">
+            <input type="text" name="city2" placeholder="second city">
+            <button type="submit">Compare</button>
+        </form>
+
+        <div class="comparison-container">
+            {% if weather_data1 %}
+            <div class="city-container">
+                {% include 'core/city_weather.html' with weather_data=weather_data1 daily_forecasts=daily_forecasts1 %}
+            </div>
+            {% endif %}
+            {% if weather_data2 %}
+            <div class="city-container">
+                {% include 'core/city_weather.html' with weather_data=weather_data2 daily_forecasts=daily_forecasts2 %}
+            </div>
+            {% endif %}
+        </div>
+
+    </body>
+
+</html>
